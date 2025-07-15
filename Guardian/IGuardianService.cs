@@ -9,4 +9,5 @@ public interface IGuardianService
     Task<IEnumerable<Guardian>> GetAllAsync();
     Task<Result<Guardian?, ValidationFailed>> UpdateAsync(Guardian guardian);
     Task<bool> DeleteByIdAsync(Guid id);
+    Task<IEnumerable<Guardian>> GetByScoutIdAsync(Guid scoutId);
 }

@@ -69,4 +69,11 @@ public class GuardianService : IGuardianService
         await _dbContext.SaveChangesAsync();
         return true;
     }
+    
+    public async Task<IEnumerable<Guardian>> GetByScoutIdAsync(Guid scoutId)
+    {
+        return await _dbContext.Guardians
+            .Where(g => g.Scouts.Any(s => s.Id == scoutId))
+            .ToListAsync();
+    }
 }
