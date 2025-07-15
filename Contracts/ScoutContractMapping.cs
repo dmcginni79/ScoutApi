@@ -1,15 +1,17 @@
-using FluentValidation.Results;
 using ScoutApi.Awards;
 using ScoutApi.Contracts.Requests;
 using ScoutApi.Contracts.Responses;
-using ScoutApi.Entities;
+using ScoutApi.Guardians;
 using ScoutApi.Ranks;
 using ScoutApi.Scouts;
+using FluentValidation.Results;
+using ScoutApi.Contracts.Requests;
+using ScoutApi.Contracts.Responses;
 using ScoutApi.Validation;
 
 namespace ScoutApi.Contracts;
 
-public static class ContractMapping
+public static class ScoutContractMapping
 {
     public static Scout MapToScout(this CreateScoutRequest request)
     {
@@ -48,26 +50,8 @@ public static class ContractMapping
     }
     
     public static ValidationFailureResponse MapToResponse(this IEnumerable<ValidationFailure> validationFailures)
-    {
-        return new ValidationFailureResponse
-        {
-            Errors = validationFailures.Select(x => new ValidationResponse
-            {
-                PropertyName = x.PropertyName,
-                Message = x.ErrorMessage
-            })
-        };
-    }
-    
+        => ContractMappingHelpers.MapValidationFailures(validationFailures);
+
     public static ValidationFailureResponse MapToResponse(this ValidationFailed failed)
-    {
-        return new ValidationFailureResponse
-        {
-            Errors = failed.Errors.Select(x => new ValidationResponse
-            {
-                PropertyName = x.PropertyName,
-                Message = x.ErrorMessage
-            })
-        };
-    }
+        => ContractMappingHelpers.MapValidationFailed(failed);
 }

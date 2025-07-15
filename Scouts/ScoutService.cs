@@ -1,4 +1,3 @@
-using ScoutApi.Entities;
 using ScoutApi.Contracts;
 using ScoutApi.Validation;
 using FluentValidation;
@@ -73,15 +72,4 @@ public class ScoutService : IScoutService
         await _dbContext.SaveChangesAsync();
         return true;
     }
-}
-
-public interface IScoutService
-{
-    Task<Result<Scout, ValidationFailed>> CreateAsync(Scout movie);
-    Task<Scout?> GetByIdAsync(Guid id);
-    Task<IEnumerable<Scout>> GetAllAsync();
-
-    Task<Result<Scout?, ValidationFailed>> UpdateAsync(Scout movie);
-
-    Task<bool> DeleteByIdAsync(Guid id);
 }

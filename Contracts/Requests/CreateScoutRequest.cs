@@ -1,5 +1,5 @@
 using ScoutApi.Awards;
-using ScoutApi.Entities;
+using ScoutApi.Guardians;
 using ScoutApi.Ranks;
 
 namespace ScoutApi.Contracts.Requests;

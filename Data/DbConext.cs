@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ScoutApi.Awards;
-using ScoutApi.Entities;
+using ScoutApi.Guardians;
 using ScoutApi.Ranks;
 using ScoutApi.Scouts;
 

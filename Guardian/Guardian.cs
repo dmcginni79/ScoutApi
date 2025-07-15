@@ -1,6 +1,7 @@
+using ScoutApi.PhoneNumbers;
 using ScoutApi.Scouts;
 
-namespace ScoutApi.Entities;
+namespace ScoutApi.Guardians;
 
 public class Guardian
 {
@@ -8,7 +9,7 @@ public class Guardian
     public required string FirstName { get; set; }
     public required string LastName { get; set; }
     public required string Email { get; set; }
-    public required string PhoneNumber { get; set; }
-    public List<Scout> Scouts { get; set; } = new List<Scout>();
+    public List<PhoneNumber> PhoneNumbers { get; set; } = new();
+    public List<Scout> Scouts { get; set; } = new ();
     public bool IsPrimaryGuardian { get; set; } = true;
 }

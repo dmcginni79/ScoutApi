@@ -1,5 +1,4 @@
 using ScoutApi.Awards;
-using ScoutApi.Entities;
 
 namespace ScoutApi.Ranks;
 

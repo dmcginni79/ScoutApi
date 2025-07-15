@@ -1,7 +1,7 @@
 using FluentValidation;
 using ScoutApi.Scouts;
 
-namespace ScoutApi.scouts;
+namespace ScoutApi.Scouts;
 
 public class ScoutValidator : AbstractValidator<Scout>
 {
