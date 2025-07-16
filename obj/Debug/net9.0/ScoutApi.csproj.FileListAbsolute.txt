@@ -155,3 +155,4 @@
 /Users/dave/RiderProjects/ScoutApi/bin/Debug/net9.0/FastEndpoints.Messaging.Core.dll
 /Users/dave/RiderProjects/ScoutApi/bin/Debug/net9.0/FluentValidation.dll
 /Users/dave/RiderProjects/ScoutApi/bin/Debug/net9.0/FluentValidation.DependencyInjectionExtensions.dll
+/Users/dave/RiderProjects/ScoutApi/obj/Debug/net9.0/ScoutApi.sourcelink.json

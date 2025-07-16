@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ScoutApi.Awards;
 using ScoutApi.Guardians;
+using ScoutApi.PhoneNumbers;
 using ScoutApi.Ranks;
 using ScoutApi.Scouts;
 
@@ -27,11 +28,22 @@ namespace ScoutApi.Data
         {
             base.OnModelCreating(modelBuilder);
             
+            modelBuilder.Entity<Guardian>()
+                .HasKey(g => g.Id);
+            
+            modelBuilder.Entity<Scout>()
+                .HasKey(s => s.Id);
+            
             // Guardian - Scouts (many-to-many)
             modelBuilder.Entity<Guardian>()
                 .HasMany(g => g.Scouts)
                 .WithMany(s => s.Guardians)
                 .UsingEntity(j => j.ToTable("GuardianScouts"));
+            
+            modelBuilder.Entity<Guardian>()
+                .HasMany(g => g.PhoneNumbers)
+                .WithOne(p => p.Guardian)
+                .HasForeignKey(p => p.GuardianId);
 
             // Scout - EarnedRanks (one-to-many)
             modelBuilder.Entity<EarnedRank>()
