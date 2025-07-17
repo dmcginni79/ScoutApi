@@ -28,7 +28,7 @@ public class CreateScoutEndpoint
         var scout = req.MapToScout();
         var result = await _scoutService.CreateAsync(scout);
         var response = result.Match<IResult>(
-            _ => TypedResults.Created($"/scouts/{scout.Id}", scout.MapToResponse()),
+            _ => TypedResults.Created($"/scout/{scout.Id}", scout.MapToResponse()),
             failed => TypedResults.BadRequest(failed.MapToResponse()));
 
         return response switch

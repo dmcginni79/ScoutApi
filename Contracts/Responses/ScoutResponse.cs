@@ -9,8 +9,12 @@ public class ScoutResponse
     public Guid Id { get; set; }
     public string FirstName { get; set; } = string.Empty;
     public string LastName { get; set; } = string.Empty;
-    public ICollection<Scout.Rank> EarnedRanks { get; set; }
-    public ICollection<EarnedAward> EarnedAwards { get; set; } 
+    public ICollection<string> EarnedRanks { get; set; } = new List<string>();
+    public ICollection<EarnedAward> EarnedAwards { get; set; } = new List<EarnedAward>();
     public DateOnly BirthDate { get; set; }
-    public ICollection<Guardian> Guardians { get; set; }
+    public ICollection<Guardian> Guardians { get; set; } = new List<Guardian>();
+    public string? CurrentRank { get; init; } 
+
+    //public string CurrentRank => EarnedRanks.Any() ? EarnedRanks.Last() : "No ranks earned yet";
+
 }

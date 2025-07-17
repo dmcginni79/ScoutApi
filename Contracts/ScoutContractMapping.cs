@@ -34,9 +34,11 @@ public static class ScoutContractMapping
             FirstName = scout.FirstName,
             LastName = scout.LastName,
             BirthDate = scout.BirthDate,
-            EarnedRanks = scout.EarnedRanks ?? new List<Scout.Rank>(),
+            EarnedRanks = scout.EarnedRanks?.Select(r => r.ToString()).ToList() 
+                          ?? new List<string>(),
             EarnedAwards = scout.EarnedAwards ?? new List<EarnedAward>(),
-            Guardians = scout.Guardians ?? new List<Guardian>()
+            Guardians = scout.Guardians ?? new List<Guardian>(),
+            CurrentRank = scout.CurrentRank?.ToString() ?? "No ranks earned yet"
         };
     }
 
