@@ -2,7 +2,6 @@ using Microsoft.EntityFrameworkCore;
 using ScoutApi.Awards;
 using ScoutApi.Guardians;
 using ScoutApi.PhoneNumbers;
-using ScoutApi.Ranks;
 using ScoutApi.Scouts;
 
 namespace ScoutApi.Data
@@ -11,9 +10,7 @@ namespace ScoutApi.Data
     {
         public DbSet<Guardian> Guardians { get; set; }
         public DbSet<Scout> Scouts { get; set; }
-        public DbSet<EarnedRank> EarnedRanks { get; set; }
         public DbSet<EarnedAward> EarnedAwards { get; set; }
-        public DbSet<Rank> Ranks { get; set; }
         public DbSet<Award> Awards { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -45,11 +42,6 @@ namespace ScoutApi.Data
                 .WithOne(p => p.Guardian)
                 .HasForeignKey(p => p.GuardianId);
 
-            // Scout - EarnedRanks (one-to-many)
-            modelBuilder.Entity<EarnedRank>()
-                .HasOne(er => er.Scout)
-                .WithMany(s  => s.EarnedRanks)
-                .HasForeignKey(er => er.ScoutId);
 
             // Scout - EarnedAwards (one-to-many)
             modelBuilder.Entity<EarnedAward>()
@@ -57,11 +49,6 @@ namespace ScoutApi.Data
                 .WithMany(s => s.EarnedAwards)
                 .HasForeignKey(ea => ea.ScoutId);
 
-            // EarnedRank - Rank (many-to-one)
-            modelBuilder.Entity<EarnedRank>()
-                .HasOne(er => er.Rank)
-                .WithMany(r => r.EarnedRanks)
-                .HasForeignKey(er => er.RankId);
 
             // EarnedAward - Award (many-to-one)
             modelBuilder.Entity<EarnedAward>()

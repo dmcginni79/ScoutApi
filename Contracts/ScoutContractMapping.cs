@@ -2,7 +2,6 @@ using ScoutApi.Awards;
 using ScoutApi.Contracts.Requests;
 using ScoutApi.Contracts.Responses;
 using ScoutApi.Guardians;
-using ScoutApi.Ranks;
 using ScoutApi.Scouts;
 using FluentValidation.Results;
 using ScoutApi.Contracts.Requests;
@@ -21,7 +20,7 @@ public static class ScoutContractMapping
             FirstName = request.FirstName,
             LastName = request.LastName,
             BirthDate = request.BirthDate,
-            EarnedRanks = request.EarnedRanks ?? new List<EarnedRank>(),
+            EarnedRanks = request.EarnedRanks ?? new List<Scout.Rank>(),
             EarnedAwards = request.EarnedAwards ?? new List<EarnedAward>(),
             Guardians = request.Guardians ?? new List<Guardian>()
         };
@@ -35,7 +34,7 @@ public static class ScoutContractMapping
             FirstName = scout.FirstName,
             LastName = scout.LastName,
             BirthDate = scout.BirthDate,
-            EarnedRanks = scout.EarnedRanks ?? new List<EarnedRank>(),
+            EarnedRanks = scout.EarnedRanks ?? new List<Scout.Rank>(),
             EarnedAwards = scout.EarnedAwards ?? new List<EarnedAward>(),
             Guardians = scout.Guardians ?? new List<Guardian>()
         };
