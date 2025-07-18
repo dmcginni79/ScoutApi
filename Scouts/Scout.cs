@@ -49,16 +49,9 @@ public class Scout
     public ICollection<Rank> EarnedRanks { get; set; } = new List<Rank>();
     public ICollection<EarnedAward> EarnedAwards { get; set; } = new List<EarnedAward>();
     public required DateOnly BirthDate { get; set; }
-    //public int Age => DateTime.Now.Year - BirthDate.Year - (DateTime.Now.DayOfYear < BirthDate.DayOfYear ? 1 : 0);
+    public int Age => DateTime.Now.Year - BirthDate.Year - (DateTime.Now.DayOfYear < BirthDate.DayOfYear ? 1 : 0);
     public ICollection<Guardian> Guardians { get; set; } = new List<Guardian>();
-
-    public int Age
-    {
-        get
-        {
-            return DateTime.Now.Year - BirthDate.Year - (DateTime.Now.DayOfYear < BirthDate.DayOfYear ? 1 : 0);
-        }
-    }
+    
     // Helper property to easily get the current rank
     public Rank? CurrentRank
     {

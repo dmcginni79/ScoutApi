@@ -51,10 +51,10 @@ namespace ScoutApi.Data
 
 
             // EarnedAward - Award (many-to-one)
-            modelBuilder.Entity<EarnedAward>()
-                .HasOne(ea => ea.Award)
-                .WithMany(a => a.EarnedAwards)
-                .HasForeignKey(ea => ea.AwardId);
+            //modelBuilder.Entity<EarnedAward>()
+             //   .HasOne(ea => ea.Award)
+             //   .WithMany(a => a.EarnedAwards)
+             //   .HasForeignKey(ea => ea.AwardId);
         }
     }
 }

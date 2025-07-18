@@ -10,4 +10,5 @@ public class GuardianResponse
     public string Email { get; set; } = string.Empty;
     public ICollection<PhoneNumber> PhoneNumbers { get; set; } = new List<PhoneNumber>();
     public bool IsPrimaryGuardian { get; set; }
+    public ICollection<ScoutResponse> Scouts { get; set; } = new List<ScoutResponse>();
 }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ScoutApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f7b4c060412dd109b714040ed5b63271e31a0ba1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+21b9a6da837a8b3a553b47c917e153bb8b35905c")]
 [assembly: System.Reflection.AssemblyProductAttribute("ScoutApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ScoutApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

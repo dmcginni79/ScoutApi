@@ -2,6 +2,7 @@ using ScoutApi.Validation;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using ScoutApi.Data;
+using ScoutApi.Scouts;
 
 namespace ScoutApi.Guardians;
 
