@@ -28,17 +28,26 @@ public static class ScoutContractMapping
 
     public static ScoutResponse MapToResponse(this Scout scout)
     {
+        var allRanks = Enum.GetValues<Scout.Rank>();
+        var nextRank = scout.EarnedRanks.Any() 
+            ? allRanks.FirstOrDefault(r => (int)r > (int)scout.EarnedRanks.Max(), Scout.Rank.Eagle)
+            : Scout.Rank.Lion;
+        
         return new ScoutResponse
         {
             Id = scout.Id,
             FirstName = scout.FirstName,
             LastName = scout.LastName,
             BirthDate = scout.BirthDate,
+            Age = scout.Age,
             EarnedRanks = scout.EarnedRanks?.Select(r => r.ToString()).ToList() 
                           ?? new List<string>(),
             EarnedAwards = scout.EarnedAwards ?? new List<EarnedAward>(),
             Guardians = scout.Guardians ?? new List<Guardian>(),
-            CurrentRank = scout.CurrentRank?.ToString() ?? "No ranks earned yet"
+            CurrentRank = nextRank == Scout.Rank.Eagle && scout.EarnedRanks.Contains(Scout.Rank.Eagle) 
+                ? Scout.Rank.Eagle.ToString()
+                : nextRank.ToString()
+
         };
     }
 

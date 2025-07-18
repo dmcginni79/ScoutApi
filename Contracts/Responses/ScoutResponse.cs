@@ -12,9 +12,7 @@ public class ScoutResponse
     public ICollection<string> EarnedRanks { get; set; } = new List<string>();
     public ICollection<EarnedAward> EarnedAwards { get; set; } = new List<EarnedAward>();
     public DateOnly BirthDate { get; set; }
+    public int Age { get; init; } 
     public ICollection<Guardian> Guardians { get; set; } = new List<Guardian>();
     public string? CurrentRank { get; init; } 
-
-    //public string CurrentRank => EarnedRanks.Any() ? EarnedRanks.Last() : "No ranks earned yet";
-
 }
