@@ -6,6 +6,7 @@ using ScoutApi.Contracts.Responses;
 using Microsoft.AspNetCore.Http.HttpResults;
 using ScoutApi.Data;
 using ScoutApi.Scouts;
+using ScoutApi.Validation;
 
 namespace ScoutApi.Guardians;
 

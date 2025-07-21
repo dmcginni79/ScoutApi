@@ -5,6 +5,7 @@ using Scalar.AspNetCore;
 using ScoutApi.Scouts;
 using FluentValidation;
 using ScoutApi.Guardians;
+using ScoutApi.PhoneNumbers;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ScoutApiContext>();
@@ -19,6 +20,7 @@ builder.Services.AddFastEndpoints();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddScoped<IScoutService, ScoutService>();
 builder.Services.AddScoped<IGuardianService, GuardianService>();
+builder.Services.AddScoped<IPhoneNumberService, PhoneNumberService>();
 builder.Services.AddValidatorsFromAssemblyContaining<Program>(ServiceLifetime.Singleton);
 
 var app = builder.Build();

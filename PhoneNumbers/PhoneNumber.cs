@@ -4,9 +4,22 @@ namespace ScoutApi.PhoneNumbers;
 
 public class PhoneNumber
 {
-    public Guid Id { get; set; }
-    public Guid GuardianId { get; set; }
-    public Guardian Guardian { get; set; } = null!;
-    public string Number { get; set; } = string.Empty;
-    public string Type { get; set; } = string.Empty; // e.g., "Mobile", "Home"
+    // private readonly IGuardianService _guardianRepository;
+    //
+    // public PhoneNumber(IGuardianService guardianRepository)
+    // {
+    //     _guardianRepository = guardianRepository;
+    // }
+    
+    public Guid Id { get; init; }
+    public Guid GuardianId { get; init; }
+    public Guardian? Guardian { get; init; } // Navigation property, can be null if not loaded
+    public string Number { get; init; } = string.Empty;
+    public string Type { get; init; } = string.Empty; // e.g., "Mobile", "Home"
+    
+    // public Task<Guardian?> GetGuardianAsync() // Guardian
+    // {
+    //     return _guardianRepository.GetByIdAsync(GuardianId);
+    // }
+
 }

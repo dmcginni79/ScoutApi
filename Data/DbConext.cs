@@ -12,7 +12,8 @@ namespace ScoutApi.Data
         public DbSet<Scout> Scouts { get; set; }
         public DbSet<EarnedAward> EarnedAwards { get; set; }
         public DbSet<Award> Awards { get; set; }
-
+        public DbSet<PhoneNumber> PhoneNumbers { get; set; }
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
